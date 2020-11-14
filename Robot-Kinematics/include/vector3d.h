@@ -9,12 +9,12 @@ public:
     double y;
     double z;
     double t;
-    
+
     vector3d(double _x, double _y, double _z);
     vector3d(double _x, double _y, double _z, double _t);
     vector3d();
     ~vector3d();
-    vector3d (const vector3d &p);
+
     vector3d operator+(const vector3d &p)const;
     vector3d operator*(const vector3d &p)const;
     vector3d operator-(const vector3d &p)const;

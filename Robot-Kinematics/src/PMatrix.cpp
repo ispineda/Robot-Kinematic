@@ -178,7 +178,6 @@ void PMatrix::redim(int _row, int _col){
                 row = row2;
             }
 
-
             for(int i = 0; i < row; i++){
                 for(int j = 0; j < col; j++){
                     dma[i][j] = dm[i][j];
@@ -265,7 +264,7 @@ PMatrix PMatrix::transpose(){
     }
     return B;
 }
-PMatrix PMatrix::inversaGauss(bool show){
+PMatrix PMatrix::inverseGauss(bool show){
 
     /*
     Matrix inverse by gauss-jordan method
@@ -416,7 +415,7 @@ PMatrix PMatrix::mij(int a,int b){ // minor of a matrix
             }
         return B;
 }
-PMatrix PMatrix::inversa(){
+PMatrix PMatrix::inverse(){
     double d =(*this).determinante();
     PMatrix B(1,1);
 
@@ -676,5 +675,4 @@ double PMatrix::magnitude(){
     r = (entry(0,0)*entry(0,0))+(entry(1,0)*entry(1,0))+(entry(2,0)*entry(2,0));
     r = sqrt(r);
     return r;
-
 }

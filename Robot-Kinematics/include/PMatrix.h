@@ -29,7 +29,7 @@ class PMatrix
         PMatrix mij(int a, int b);
         int size() const;
         double& entry(int _row, int _col);
-        PMatrix inversa();
+        PMatrix inverse();
 
         PMatrix& operator = ( const PMatrix &M);
         PMatrix& operator |= ( const PMatrix &M);
@@ -41,7 +41,7 @@ class PMatrix
         PMatrix operator *(PMatrix M);
         PMatrix operator <<(const PMatrix &M);
 
-        PMatrix inversaGauss(bool show = false);
+        PMatrix inverseGauss(bool show = false);
         PMatrix extendIdenty();
 
         double magnitude();
