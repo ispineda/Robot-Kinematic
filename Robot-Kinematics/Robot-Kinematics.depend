@@ -1,0 +1,33 @@
+# depslib dependency file v1.0
+1605326644 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\main.cpp
+	<windows.h>
+	<gl/gl.h>
+	<iostream>
+	<PMatrix.h>
+
+1605249602 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\vector.cpp
+	"Vector.h"
+
+1605258108 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\vector.h
+	<cmath>
+	<iostream>
+
+1605333833 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\vector3d.cpp
+	"vector3d.h"
+	"PMatrix.h"
+	<iostream>
+
+1605333833 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\vector3d.h
+	<math.h>
+
+1605338520 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\pmatrix.h
+	<iostream>
+	<cmath>
+	<vector3d.h>
+
+1590992604 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\metmatrix.h
+	"PMatrix.h"
+
+1605338013 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\pmatrix.cpp
+	"PMatrix.h"
+
