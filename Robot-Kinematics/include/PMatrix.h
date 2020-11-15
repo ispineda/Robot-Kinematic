@@ -13,7 +13,7 @@ class PMatrix
         PMatrix(int _n);
         PMatrix(int _row, int _col);
         //PMatrix(const PMatrix &M);
-        
+
         virtual ~PMatrix();
 
         void zero();
@@ -44,12 +44,17 @@ class PMatrix
         PMatrix inverseGauss(bool show = false);
         PMatrix extendIdenty();
 
+        PMatrix rotaryX(double dtheta);
+        PMatrix rotaryY(double dtheta);
+        PMatrix rotaryZ(double dtheta);
+
         double magnitude();
 
         double **dm;
         double **dma;
         int row, col;
         int row2, col2;
+
     private:
         void createMatrix(int _row, int _column);
 };

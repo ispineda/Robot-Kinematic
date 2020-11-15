@@ -2,6 +2,7 @@
 #include <gl/gl.h>
 #include <iostream>
 #include <PMatrix.h>
+#include <object3D.h>
 
 using namespace std;
 
@@ -9,7 +10,7 @@ LRESULT CALLBACK WindowProc(HWND, UINT, WPARAM, LPARAM);
 void EnableOpenGL(HWND hwnd, HDC*, HGLRC*);
 void DisableOpenGL(HWND, HDC, HGLRC);
 
-PMatrix P(2,2);
+
 int WINAPI WinMain(HINSTANCE hInstance,
                    HINSTANCE hPrevInstance,
                    LPSTR lpCmdLine,
@@ -59,7 +60,9 @@ int WINAPI WinMain(HINSTANCE hInstance,
 
     /* enable OpenGL for the window */
     EnableOpenGL(hwnd, &hDC, &hRC);
-    P.show(); ///<<<<<<<<<<<<<<<<<<<<<<<
+    object3D object;
+
+    object.read_object("pikachu.stl");
     /* program main loop */
     while (!bQuit)
     {
