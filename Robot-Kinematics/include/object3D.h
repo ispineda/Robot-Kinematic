@@ -27,7 +27,7 @@ class object3D
     	ifstream fileObject;
     	int ntriangles;
     	Triangles* triangles;
-    	vector3d Origin;
+    	vector3d Origin, ux, uy, uz;
 
 };
 

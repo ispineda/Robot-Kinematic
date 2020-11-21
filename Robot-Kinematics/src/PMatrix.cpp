@@ -694,7 +694,6 @@ PMatrix PMatrix::rotaryX(double dtheta){
 
     return Rx;
 }
-
 PMatrix PMatrix::rotaryY(double dtheta){
     PMatrix Ry(3);
 
@@ -712,7 +711,6 @@ PMatrix PMatrix::rotaryY(double dtheta){
 
     return Ry;
 }
-
 PMatrix PMatrix::rotaryZ(double dtheta){
     PMatrix Rz(3);
 

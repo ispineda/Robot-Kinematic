@@ -1,68 +1,70 @@
 #include <windows.h>
 #include <gl/gl.h>
-#include <iostream>
-#include <PMatrix.h>
-#include <object3D.h>
-
-using namespace std;
+#include "EnvironmentOGL.h"
 
 LRESULT CALLBACK WindowProc(HWND, UINT, WPARAM, LPARAM);
 void EnableOpenGL(HWND hwnd, HDC*, HGLRC*);
 void DisableOpenGL(HWND, HDC, HGLRC);
+vector3d d1,d2,d3,d4,d5,d6,d7;
 
+float dtheta(0.02);
 
+EnvironmentOGL* environment=NULL;
 int WINAPI WinMain(HINSTANCE hInstance,
                    HINSTANCE hPrevInstance,
                    LPSTR lpCmdLine,
                    int nCmdShow)
 {
-    WNDCLASSEX wcex;    // Data structure for the window class
-    HWND hwnd; // Manager of window
+
+    WNDCLASSEX wcex;
+    HWND hwnd;
     HDC hDC;
     HGLRC hRC;
-    MSG msg;   // Message received by the application
+    MSG msg;
     BOOL bQuit = FALSE;
-    float theta = 0.0f;
+
 
     /* register window class */
+    wcex.style = CS_DBLCLKS;
     wcex.cbSize = sizeof(WNDCLASSEX);
-    wcex.style = CS_OWNDC;  // Double clicks capture
-    wcex.lpfnWndProc = WindowProc; // Invoked function by windows
-    wcex.cbClsExtra = 0;    //Additional information
-    wcex.cbWndExtra = 0;    //**
+    wcex.style = CS_OWNDC;
+    wcex.lpfnWndProc = WindowProc;
+    wcex.cbClsExtra = 0;
+    wcex.cbWndExtra = 0;
     wcex.hInstance = hInstance;
     wcex.hIcon = LoadIcon(NULL, IDI_APPLICATION);
-    wcex.hCursor = LoadCursor(NULL, IDC_ARROW);
-    wcex.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);
+    wcex.hCursor = NULL;
+    wcex.hbrBackground = GetSysColorBrush(COLOR_BACKGROUND);
     wcex.lpszMenuName = NULL;
-    wcex.lpszClassName = "GLRobot"; //Class Name
+    wcex.lpszClassName = "GLSample";
     wcex.hIconSm = LoadIcon(NULL, IDI_APPLICATION);;
 
+    environment = new EnvironmentOGL;
 
     if (!RegisterClassEx(&wcex))
         return 0;
 
     /* create main window */
     hwnd = CreateWindowEx(0,
-                          wcex.lpszClassName,
-                          "Robot > T-Case",
+                          "GLSample",
+                          "Controller Robotic",
                           WS_OVERLAPPEDWINDOW,
                           CW_USEDEFAULT,
                           CW_USEDEFAULT,
-                          256, // width of window
-                          256, // height of window
+                          800,
+                          600,
                           NULL,
                           NULL,
                           hInstance,
                           NULL);
-
-    ShowWindow(hwnd, nCmdShow); // Allows to show the window
+    EnableOpenGL(hwnd, &hDC, &hRC);
+    ShowWindow(hwnd, nCmdShow);
+    UpdateWindow(hwnd);
 
     /* enable OpenGL for the window */
-    EnableOpenGL(hwnd, &hDC, &hRC);
-    object3D object;
 
-    object.read_object("pikachu.stl");
+    environment->initializer(400);
+    SwapBuffers(hDC);
     /* program main loop */
     while (!bQuit)
     {
@@ -84,33 +86,16 @@ int WINAPI WinMain(HINSTANCE hInstance,
         {
             /* OpenGL animation code goes here */
 
-            glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-            glClear(GL_COLOR_BUFFER_BIT);
-
-            glPushMatrix();
-            glRotatef(theta, 0.0f, 0.0f, 1.0f);
-
-            glBegin(GL_TRIANGLES);
-
-                glColor3f(1.0f, 0.0f, 0.0f);   glVertex2f(0.0f,   1.0f);
-                glColor3f(0.0f, 1.0f, 0.0f);   glVertex2f(0.87f,  -0.5f);
-                glColor3f(0.0f, 0.0f, 1.0f);   glVertex2f(-0.87f, -0.5f);
-
-            glEnd();
-
-            glPopMatrix();
-
+            environment->render();
             SwapBuffers(hDC);
-
-            theta += 1.0f;
             Sleep (1);
         }
     }
-
+    delete environment;
+    environment=NULL;
     /* shutdown OpenGL */
     DisableOpenGL(hwnd, hDC, hRC);
 
-    /* destroy the window explicitly */
     DestroyWindow(hwnd);
 
     return msg.wParam;
@@ -118,30 +103,76 @@ int WINAPI WinMain(HINSTANCE hInstance,
 
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
+    int height, width;
+    //static int izq, cen, der;
+    //static POINTS punto;
+
     switch (uMsg)
     {
-        case WM_CLOSE:
-            PostQuitMessage(0);
+    case WM_CREATE:
+        break;
+    case WM_CLOSE:
+        PostQuitMessage(0);
+        break;
+    case WM_SIZE:
+        height = HIWORD(lParam);
+        width = LOWORD(lParam);
+        environment->resize(width, height);
+
         break;
 
-        case WM_DESTROY:
-            return 0;
+    case WM_DESTROY:
+        return 0;
 
-        case WM_KEYDOWN:
+    case WM_KEYDOWN:
+    {
+        switch (wParam)
         {
-            switch (wParam)
-            {
-                case VK_ESCAPE:
-                    PostQuitMessage(0);
-                break;
-            }
+
+
+
+        case '1':
+            break;
+
+        case 'A':
+            environment->thetaCamera=environment->thetaCamera+0.05;
+
+            break;
+        case 'D':
+            environment->thetaCamera=environment->thetaCamera-0.05;
+
+            break;
+
+        case 'W':
+            environment->phiCamera=environment->phiCamera+0.05;
+
+            break;
+
+        case 'S':
+            environment->phiCamera=environment->phiCamera-0.05;
+
+            break;
+
+        case 'L':
+            environment->Rcamera=environment->Rcamera+10;
+
+            break;
+
+        case 'K':
+            environment->Rcamera=environment->Rcamera-10;;
+
+            break;
+
+        case VK_ESCAPE:
+            PostQuitMessage(0);
+            break;
         }
-        break;
-
-        default:
-            return DefWindowProc(hwnd, uMsg, wParam, lParam);
     }
+    break;
 
+    default:
+        return DefWindowProc(hwnd, uMsg, wParam, lParam);
+    }
     return 0;
 }
 
@@ -175,10 +206,12 @@ void EnableOpenGL(HWND hwnd, HDC* hDC, HGLRC* hRC)
 
     wglMakeCurrent(*hDC, *hRC);
 }
+
 void DisableOpenGL (HWND hwnd, HDC hDC, HGLRC hRC)
 {
     wglMakeCurrent(NULL, NULL);
     wglDeleteContext(hRC);
     ReleaseDC(hwnd, hDC);
 }
+
 
