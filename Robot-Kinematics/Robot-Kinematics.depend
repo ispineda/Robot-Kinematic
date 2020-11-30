@@ -1,9 +1,8 @@
 # depslib dependency file v1.0
-1605326644 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\main.cpp
+1605978692 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\main.cpp
 	<windows.h>
 	<gl/gl.h>
-	<iostream>
-	<PMatrix.h>
+	"EnvironmentOGL.h"
 
 1605249602 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\vector.cpp
 	"Vector.h"
@@ -12,15 +11,15 @@
 	<cmath>
 	<iostream>
 
-1605333833 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\vector3d.cpp
+1605515236 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\vector3d.cpp
 	"vector3d.h"
 	"PMatrix.h"
 	<iostream>
 
-1605333833 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\vector3d.h
+1605387360 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\vector3d.h
 	<math.h>
 
-1605338520 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\pmatrix.h
+1605397995 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\pmatrix.h
 	<iostream>
 	<cmath>
 	<vector3d.h>
@@ -28,6 +27,40 @@
 1590992604 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\metmatrix.h
 	"PMatrix.h"
 
-1605338013 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\pmatrix.cpp
+1605976600 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\pmatrix.cpp
 	"PMatrix.h"
+
+1605391083 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\triangles.cpp
+	"Triangles.h"
+
+1605388128 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\triangles.h
+	"vector3d.h"
+
+1605419897 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\object3d.cpp
+	"object3D.h"
+
+1605417775 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\object3d.h
+	<fstream>
+	<iostream>
+	<stdint.h>
+	<Triangles.h>
+	<PMatrix.h>
+	<gl/gl.h>
+	<GL/GLU.h>
+
+1605885372 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\claseopengl.cpp
+	"ClaseOpenGL.h"
+
+1605420581 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\claseopengl.h
+	<gl/gl.h>
+	<GL/GLU.h>
+	"object3D.h"
+
+1605977214 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\environmentogl.cpp
+	"EnvironmentOGL.h"
+
+1605975436 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\environmentogl.h
+	<gl/gl.h>
+	<GL/GLU.h>
+	"object3D.h"
 

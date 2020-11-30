@@ -5,19 +5,12 @@ using namespace std;
 
 vector3d::vector3d(double _x, double _y, double _z): x(_x), y(_y), z(_z){ t = 0; };
 vector3d::vector3d(double _x, double _y, double _z, double _t): x(_x), y(_y), z(_z), t(_t){};
-
 vector3d::vector3d(){
     x=0;
     y=0;
     z=0;
 };
-vector3d::vector3d (const vector3d &p)
-{
-    x=p.x;
-    y=p.y;
-    z=p.z;
-    t=p.t;
-};
+
 vector3d vector3d::operator+(const vector3d &p)const
 {
     return vector3d(x + p.x, y + p.y, z + p.z, t + p.t);
@@ -138,6 +131,7 @@ vector3d& vector3d::nullVector()
     this->x = 0;
     this->y = 0;
     this->z = 0;
+    this->t = 0;
     return *this;
 }
 

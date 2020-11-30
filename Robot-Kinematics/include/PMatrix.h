@@ -13,7 +13,7 @@ class PMatrix
         PMatrix(int _n);
         PMatrix(int _row, int _col);
         //PMatrix(const PMatrix &M);
-        
+
         virtual ~PMatrix();
 
         void zero();
@@ -29,7 +29,7 @@ class PMatrix
         PMatrix mij(int a, int b);
         int size() const;
         double& entry(int _row, int _col);
-        PMatrix inversa();
+        PMatrix inverse();
 
         PMatrix& operator = ( const PMatrix &M);
         PMatrix& operator |= ( const PMatrix &M);
@@ -41,8 +41,12 @@ class PMatrix
         PMatrix operator *(PMatrix M);
         PMatrix operator <<(const PMatrix &M);
 
-        PMatrix inversaGauss(bool show = false);
+        PMatrix inverseGauss(bool show = false);
         PMatrix extendIdenty();
+
+        PMatrix rotaryX(double dtheta);
+        PMatrix rotaryY(double dtheta);
+        PMatrix rotaryZ(double dtheta);
 
         double magnitude();
 
@@ -50,6 +54,7 @@ class PMatrix
         double **dma;
         int row, col;
         int row2, col2;
+
     private:
         void createMatrix(int _row, int _column);
 };

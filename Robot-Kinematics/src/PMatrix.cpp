@@ -178,7 +178,6 @@ void PMatrix::redim(int _row, int _col){
                 row = row2;
             }
 
-
             for(int i = 0; i < row; i++){
                 for(int j = 0; j < col; j++){
                     dma[i][j] = dm[i][j];
@@ -265,7 +264,7 @@ PMatrix PMatrix::transpose(){
     }
     return B;
 }
-PMatrix PMatrix::inversaGauss(bool show){
+PMatrix PMatrix::inverseGauss(bool show){
 
     /*
     Matrix inverse by gauss-jordan method
@@ -416,7 +415,7 @@ PMatrix PMatrix::mij(int a,int b){ // minor of a matrix
             }
         return B;
 }
-PMatrix PMatrix::inversa(){
+PMatrix PMatrix::inverse(){
     double d =(*this).determinante();
     PMatrix B(1,1);
 
@@ -676,5 +675,56 @@ double PMatrix::magnitude(){
     r = (entry(0,0)*entry(0,0))+(entry(1,0)*entry(1,0))+(entry(2,0)*entry(2,0));
     r = sqrt(r);
     return r;
+}
 
+PMatrix PMatrix::rotaryX(double dtheta){
+    PMatrix Rx(3);
+
+    Rx.entry(0,0) = 1;
+    Rx.entry(0,1) = 0;
+    Rx.entry(0,2) = 0;
+
+    Rx.entry(0,0) = 0;
+    Rx.entry(0,1) = cos(dtheta);
+    Rx.entry(0,2) = -sin(dtheta);
+
+    Rx.entry(0,0) = 0;
+    Rx.entry(0,1) = sin(dtheta);
+    Rx.entry(0,2) = cos(dtheta);
+
+    return Rx;
+}
+PMatrix PMatrix::rotaryY(double dtheta){
+    PMatrix Ry(3);
+
+    Ry.entry(0,0) = cos(dtheta);
+    Ry.entry(0,1) = 0;
+    Ry.entry(0,2) = sin(dtheta);
+
+    Ry.entry(0,0) = 0;
+    Ry.entry(0,1) = 1;
+    Ry.entry(0,2) = 0;
+
+    Ry.entry(0,0) = -sin(dtheta);
+    Ry.entry(0,1) = 0;
+    Ry.entry(0,2) = cos(dtheta);
+
+    return Ry;
+}
+PMatrix PMatrix::rotaryZ(double dtheta){
+    PMatrix Rz(3);
+
+    Rz.entry(0,0) = cos(dtheta);
+    Rz.entry(0,1) = -sin(dtheta);
+    Rz.entry(0,2) = 0;
+
+    Rz.entry(0,0) = sin(dtheta);
+    Rz.entry(0,1) = cos(dtheta);
+    Rz.entry(0,2) = 0;
+
+    Rz.entry(0,0) = 0;
+    Rz.entry(0,1) = 0;
+    Rz.entry(0,2) = 1;
+
+    return Rz;
 }
