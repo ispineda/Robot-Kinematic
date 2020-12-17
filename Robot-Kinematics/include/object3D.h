@@ -7,6 +7,9 @@
 #include <PMatrix.h>
 #include <gl/gl.h>
 #include <GL/GLU.h>
+#include "vector3d.h"
+#include <vector>
+
 
 #define PI 3.14159265
 
@@ -16,18 +19,23 @@ class object3D
 {
     public:
         object3D();
-        object3D(double pos_x, double pos_y, double pos_z);
+        object3D(vector3d pos);
         bool read_object(const char* name);
-        bool drawObject();
+        bool renderSolid();
+        bool renderPoints();
+        bool renderLines();
         void traslatarOrigin(vector3d tM);
         void moveOrigin(vector3d tO);
-
         virtual ~object3D();
 
+        
+        vector3d colorObject;
+        
     	ifstream fileObject;
     	int ntriangles;
     	Triangles* triangles;
     	vector3d Origin, ux, uy, uz;
+        Triangles vT;
 
 };
 

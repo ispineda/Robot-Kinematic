@@ -1,8 +1,9 @@
 # depslib dependency file v1.0
-1605978692 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\main.cpp
+1607871001 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\main.cpp
 	<windows.h>
 	<gl/gl.h>
 	"EnvironmentOGL.h"
+	"Rueda.h"
 
 1605249602 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\vector.cpp
 	"Vector.h"
@@ -30,16 +31,16 @@
 1605976600 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\pmatrix.cpp
 	"PMatrix.h"
 
-1605391083 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\triangles.cpp
+1607548829 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\triangles.cpp
 	"Triangles.h"
 
-1605388128 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\triangles.h
+1607548898 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\triangles.h
 	"vector3d.h"
 
-1605419897 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\object3d.cpp
+1607870931 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\object3d.cpp
 	"object3D.h"
 
-1605417775 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\object3d.h
+1607868253 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\object3d.h
 	<fstream>
 	<iostream>
 	<stdint.h>
@@ -47,6 +48,8 @@
 	<PMatrix.h>
 	<gl/gl.h>
 	<GL/GLU.h>
+	"vector3d.h"
+	<vector>
 
 1605885372 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\claseopengl.cpp
 	"ClaseOpenGL.h"
@@ -56,11 +59,20 @@
 	<GL/GLU.h>
 	"object3D.h"
 
-1605977214 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\environmentogl.cpp
+1607861836 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\environmentogl.cpp
 	"EnvironmentOGL.h"
 
-1605975436 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\environmentogl.h
+1607861755 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\environmentogl.h
 	<gl/gl.h>
 	<GL/GLU.h>
+	"object3D.h"
+
+1607869657 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\rueda.cpp
+	"Rueda.h"
+	<iostream>
+	<windows.h>
+
+1607548437 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\rueda.h
+	"vector3d.h"
 	"object3D.h"
 

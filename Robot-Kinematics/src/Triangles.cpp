@@ -13,7 +13,19 @@ Triangles::Triangles(vector3d _p1, vector3d _p2, vector3d _p3)
     p[1] = _p2;
     p[2] = _p3;
 }
+Triangles::Triangles(vector3d nom, vector3d _p1, vector3d _p2, vector3d _p3){
+	normal = nom;
+	p[0] = _p1;
+    p[1] = _p2;
+    p[2] = _p3;
+}
 
+void Triangles::assigned(vector3d nom, vector3d _p1, vector3d _p2, vector3d _p3){
+	normal = nom;
+	p[0] = _p1;
+    p[1] = _p2;
+    p[2] = _p3;
+}
 Triangles::~Triangles(){}
 
 vector3d Triangles::nomalV(){

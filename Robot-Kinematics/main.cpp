@@ -1,6 +1,7 @@
 #include <windows.h>
 #include <gl/gl.h>
 #include "EnvironmentOGL.h"
+#include "Rueda.h"
 
 LRESULT CALLBACK WindowProc(HWND, UINT, WPARAM, LPARAM);
 void EnableOpenGL(HWND hwnd, HDC*, HGLRC*);
@@ -10,6 +11,9 @@ vector3d d1,d2,d3,d4,d5,d6,d7;
 float dtheta(0.02);
 
 EnvironmentOGL* environment=NULL;
+Rueda* rueda1 = NULL;
+bool cambio = false;
+
 int WINAPI WinMain(HINSTANCE hInstance,
                    HINSTANCE hPrevInstance,
                    LPSTR lpCmdLine,
@@ -40,6 +44,8 @@ int WINAPI WinMain(HINSTANCE hInstance,
     wcex.hIconSm = LoadIcon(NULL, IDI_APPLICATION);;
 
     environment = new EnvironmentOGL;
+    rueda1 = new Rueda({20,20,20});
+
 
     if (!RegisterClassEx(&wcex))
         return 0;
@@ -63,7 +69,8 @@ int WINAPI WinMain(HINSTANCE hInstance,
 
     /* enable OpenGL for the window */
 
-    environment->initializer(400);
+    environment->initializer(200,{0,0,0},{1,1,1,1});
+
     SwapBuffers(hDC);
     /* program main loop */
     while (!bQuit)
@@ -85,14 +92,16 @@ int WINAPI WinMain(HINSTANCE hInstance,
         else
         {
             /* OpenGL animation code goes here */
-
             environment->render();
+            rueda1->render();
             SwapBuffers(hDC);
-            Sleep (1);
+
         }
     }
     delete environment;
+    delete rueda1;
     environment=NULL;
+    rueda1 = NULL;
     /* shutdown OpenGL */
     DisableOpenGL(hwnd, hDC, hRC);
 
@@ -129,38 +138,33 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
         switch (wParam)
         {
 
-
-
-        case '1':
-            break;
-
         case 'A':
             environment->thetaCamera=environment->thetaCamera+0.05;
-
+            cambio = true;
             break;
         case 'D':
             environment->thetaCamera=environment->thetaCamera-0.05;
-
+            cambio = true;
             break;
 
         case 'W':
             environment->phiCamera=environment->phiCamera+0.05;
-
+            cambio = true;
             break;
 
         case 'S':
             environment->phiCamera=environment->phiCamera-0.05;
-
+            cambio = true;
             break;
 
         case 'L':
             environment->Rcamera=environment->Rcamera+10;
-
+            cambio = true;
             break;
 
         case 'K':
             environment->Rcamera=environment->Rcamera-10;;
-
+            cambio = true;
             break;
 
         case VK_ESCAPE:

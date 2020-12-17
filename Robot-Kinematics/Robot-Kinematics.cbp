@@ -40,12 +40,14 @@
 		</Linker>
 		<Unit filename="include/EnvironmentOGL.h" />
 		<Unit filename="include/PMatrix.h" />
+		<Unit filename="include/Rueda.h" />
 		<Unit filename="include/Triangles.h" />
 		<Unit filename="include/object3D.h" />
 		<Unit filename="include/vector3d.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/EnvironmentOGL.cpp" />
 		<Unit filename="src/PMatrix.cpp" />
+		<Unit filename="src/Rueda.cpp" />
 		<Unit filename="src/Triangles.cpp" />
 		<Unit filename="src/object3D.cpp" />
 		<Unit filename="src/vector3d.cpp" />

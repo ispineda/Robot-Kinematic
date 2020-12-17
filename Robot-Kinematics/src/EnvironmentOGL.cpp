@@ -1,17 +1,32 @@
 #include "EnvironmentOGL.h"
 
 
-EnvironmentOGL::EnvironmentOGL() {}
+EnvironmentOGL::EnvironmentOGL() {
 
-void EnvironmentOGL::initializer(float rcamera )
+    pLocationX = 0;
+    pLocationY = 0;
+    pLocationZ = 0;
+}
+
+void EnvironmentOGL::initializer(float rProjection, vector3d pLocation,vector3d color)
 {
 
-    Rcamera = rcamera;
+    Rcamera = rProjection;
     phiCamera = PI/3.0;
     thetaCamera = PI/4.0;
     camerafactor = 0.005;
 
-    glClearColor(1,1,1,1);
+    pLocationX = pLocation.x;
+    pLocationY = pLocation.y;
+    pLocationZ = pLocation.z;
+
+    double color1 = color.x;
+    double color2 = color.y;
+    double color3 = color.z;
+    double color4 = color.t;
+
+    glClearColor(color1,color2,color3,color4);
+
     glEnable( GL_LINE_SMOOTH );
     glHint( GL_LINE_SMOOTH_HINT, GL_NICEST );
     glEnable(GL_BLEND);
@@ -32,19 +47,17 @@ EnvironmentOGL::~EnvironmentOGL() {}
 
 void EnvironmentOGL::render()
 {
-    radians =  double(PI*(angle-90.0f)/180.0f);
-
     cameraX=Rcamera*cos(phiCamera)*cos(thetaCamera);
     cameraY=Rcamera*cos(phiCamera)*sin(thetaCamera);
     cameraZ=Rcamera*sin(phiCamera);
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT|GL_STENCIL_BUFFER_BIT );
     glLoadIdentity();
-    gluLookAt(cameraX,cameraY,cameraZ, 0, 0,0, 0.0, 0,fabs(cos(thetaCamera))*sin(phiCamera+0.1));
+    gluLookAt(cameraX,cameraY,cameraZ, pLocationX, pLocationY, pLocationZ, 0.0, 0,fabs(cos(thetaCamera))*sin(phiCamera+0.1));
 
-    drawarrow3D({0,0,0}, {50,0,0}, redColor,1,0.5);
-    drawarrow3D({0,0,0}, {0,50,0}, greenColor,1,0.5);
-    drawarrow3D({0,0,0}, {0,0,50}, blueColor,1,0.5);
+    drawarrow3D({0,0,0}, {50,0,0}, red,1,0.5);
+    drawarrow3D({0,0,0}, {0,50,0}, green,1,0.5);
+    drawarrow3D({0,0,0}, {0,0,50}, blue,1,0.5);
 }
 
 void EnvironmentOGL::resize(int width, int height)
@@ -127,17 +140,9 @@ void EnvironmentOGL::drawarrow3D( vector3d A,  vector3d B, vector3d color, doubl
     }
 
     glEnd();
-
-
-}
-
-void EnvironmentOGL::drawarrow3Dmodel(const object3D &model)
-{
-
-    drawarrow3D(model.Origin,model.Origin+80*model.ux,redColor,0.03,1);
-    drawarrow3D(model.Origin,model.Origin+80*model.uy,greenColor,0.03,1);
-    drawarrow3D(model.Origin,model.Origin+80*model.uz,blueColor,0.03,1);
-
 }
 
 
+void EnvironmentOGL::add(const object3D &object){
+
+}
