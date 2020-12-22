@@ -67,7 +67,7 @@
 	<GL/GLU.h>
 	"object3D.h"
 
-1607869657 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\rueda.cpp
+1607871824 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\rueda.cpp
 	"Rueda.h"
 	<iostream>
 	<windows.h>
