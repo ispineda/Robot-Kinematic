@@ -12,19 +12,20 @@ class EnvironmentOGL
 public:
     EnvironmentOGL();
     virtual ~EnvironmentOGL();
-    void initializer(float rcamera);
+    void initializer(float rcamera, vector3d pLocation,vector3d color);
     void render();
     void resize(int width, int height);
-    void  drawarrow3D( vector3d A,  vector3d B, vector3d color, double cota1,double R=0.01);
+    void drawarrow3D( vector3d A,  vector3d B, vector3d color, double cota1,double R=0.01);
+    void add(const object3D &object);
 
     float cameraX,  cameraZ, cameraY,   mouseX,mouseY, camerafactor,angle;
     float Rcamera, phiCamera, thetaCamera;
-    float radians;
 
-    vector3d redColor = {1,0.0,0.0};
-    vector3d greenColor= {0.0,1,0.0};
-    vector3d blueColor= {0.0,0.0,1};
-    void drawarrow3Dmodel(const object3D &modelo);
+    float pLocationX, pLocationY, pLocationZ;
+
+    vector3d red = {1,0.0,0.0};
+    vector3d green= {0.0,1,0.0};
+    vector3d blue= {0.0,0.0,1};
 
 };
 
