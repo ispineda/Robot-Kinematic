@@ -1,1 +1,5 @@
-# ROBOT CINEMATICA DE 6 GRADOS DE LIBERTAD
+# Análisis de cinemática directa e inversa
+
+![Trayectorias parametricas](/docs/imgs/Running\ parametric\ path.PNG)
+
+
