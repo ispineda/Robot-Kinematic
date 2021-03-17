@@ -1,0 +1,152 @@
+# depslib dependency file v1.0
+1613719443 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\main.cpp
+	<windows.h>
+	<gl/gl.h>
+	"EnvironmentOGL.h"
+
+1605249602 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\vector.cpp
+	"Vector.h"
+
+1605258108 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\vector.h
+	<cmath>
+	<iostream>
+
+1605515236 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\vector3d.cpp
+	"vector3d.h"
+	"PMatrix.h"
+	<iostream>
+
+1605387360 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\vector3d.h
+	<math.h>
+
+1613722147 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\pmatrix.h
+	<iostream>
+	<cmath>
+	<vector3d.h>
+
+1590992604 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\metmatrix.h
+	"PMatrix.h"
+
+1613722149 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\pmatrix.cpp
+	"PMatrix.h"
+
+1607548829 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\triangles.cpp
+	"Triangles.h"
+
+1607548898 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\triangles.h
+	"vector3d.h"
+
+1613728978 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\object3d.cpp
+	"object3D.h"
+
+1613729872 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\object3d.h
+	<fstream>
+	<iostream>
+	<stdint.h>
+	<Triangles.h>
+	<PMatrix.h>
+	<gl/gl.h>
+	<GL/GLU.h>
+	"vector3d.h"
+	<vector>
+
+1605885372 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\claseopengl.cpp
+	"ClaseOpenGL.h"
+
+1605420581 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\claseopengl.h
+	<gl/gl.h>
+	<GL/GLU.h>
+	"object3D.h"
+
+1613717649 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\environmentogl.cpp
+	"EnvironmentOGL.h"
+
+1613717669 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\environmentogl.h
+	<gl/gl.h>
+	<GL/GLU.h>
+	"object3D.h"
+
+1607871824 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\rueda.cpp
+	"Rueda.h"
+	<iostream>
+	<windows.h>
+
+1607548437 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\rueda.h
+	"vector3d.h"
+	"object3D.h"
+
+1613719387 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\eslabon.h
+
+1613719595 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\robot.cpp
+	"Robot.h"
+
+1613719595 c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\include\robot.h
+	<string>
+
+1613719344 source:c:\users\ismael\documents\github\robot-kinematic\robot-kinematics\src\eslabon.cpp
+	"Eslabon.h"
+	"vector3d.h"
+	"object3D.h"
+	<cstring>
+
+1613719443 source:c:\users\ismael\documents\github\robot-kinematic\code-robot\main.cpp
+	<windows.h>
+	<gl/gl.h>
+	"EnvironmentOGL.h"
+
+1613717669 c:\users\ismael\documents\github\robot-kinematic\code-robot\include\environmentogl.h
+	<gl/gl.h>
+	<GL/GLU.h>
+	"object3D.h"
+
+1613729872 c:\users\ismael\documents\github\robot-kinematic\code-robot\include\object3d.h
+	<fstream>
+	<iostream>
+	<stdint.h>
+	<Triangles.h>
+	<PMatrix.h>
+	<gl/gl.h>
+	<GL/GLU.h>
+	"vector3d.h"
+	<vector>
+
+1607548898 c:\users\ismael\documents\github\robot-kinematic\code-robot\include\triangles.h
+	"vector3d.h"
+
+1605387360 c:\users\ismael\documents\github\robot-kinematic\code-robot\include\vector3d.h
+	<math.h>
+
+1613722147 c:\users\ismael\documents\github\robot-kinematic\code-robot\include\pmatrix.h
+	<iostream>
+	<cmath>
+	<vector3d.h>
+
+1613717649 source:c:\users\ismael\documents\github\robot-kinematic\code-robot\src\environmentogl.cpp
+	"EnvironmentOGL.h"
+
+1613729872 source:c:\users\ismael\documents\github\robot-kinematic\code-robot\src\object3d.cpp
+	"object3D.h"
+
+1613722149 source:c:\users\ismael\documents\github\robot-kinematic\code-robot\src\pmatrix.cpp
+	"PMatrix.h"
+
+1607548829 source:c:\users\ismael\documents\github\robot-kinematic\code-robot\src\triangles.cpp
+	"Triangles.h"
+
+1605515236 source:c:\users\ismael\documents\github\robot-kinematic\code-robot\src\vector3d.cpp
+	"vector3d.h"
+	"PMatrix.h"
+	<iostream>
+
+1613729936 source:c:\users\ismael\documents\github\robot-kinematic\code-robot\src\robot.cpp
+	"Robot.h"
+
+1613727639 c:\users\ismael\documents\github\robot-kinematic\code-robot\include\robot.h
+	"object3D.h"
+	"vector3d.h"
+	"PMatrix.h"
+	<vector>
+	<cstdlib>
+	<cmath>
+	<string>
+
