@@ -1,5 +1,5 @@
 # Análisis de cinemática directa e inversa
 
-![Trayectorias parametricas](/docs/imgs/Running\ parametric\ path.PNG)
+![Trayectorias parametricas](https://github.com/ispineda/Robot-Kinematic/blob/develop/docs/imgs/Running%20parametric%20path.PNG)
 
 
